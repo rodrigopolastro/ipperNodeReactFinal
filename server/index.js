@@ -33,11 +33,10 @@ app.get("/api", async (request, response) => {
 
   try {
     await client.connect();
-    console.log('Conexão com o banco de dados estabelecida.');
 
     const db = client.db(dbName);
     const verifications = db.collection("verifications");
-    let result = await verifications.findOne({ name: "rodrigo" })
+    let result = await verifications.findOne({ name: "first" })
     // console.log(result.message)
 
     response.json(result)
