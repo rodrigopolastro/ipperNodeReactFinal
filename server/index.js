@@ -4,34 +4,60 @@ const PORT = process.env.PORT || 3001;
 
 
 
-async function connectDB() {
+// async function connectDB() {
+//   const MongoClient = require('mongodb').MongoClient;
+//   const uri    = 'mongodb://localhost:27017';
+//   const dbName = 'pirulito';
+//   const client = new MongoClient(uri);
+
+//   try {
+//     // const client = await MongoClient.connect(url, { useUnifiedTopology: true });
+//     await client.connect();
+//     const db = client.db(dbName);
+//     const result = await db.collection('verifications').findOne({ name: "rodrigo" });
+
+//     return result;
+//   } catch (error) {
+//     console.error('Erro ao conectar ao banco de dados:', error);
+//     throw error;
+//   }
+// }
+
+app.get("/api", async (request, response) => {
+  // response.json({message: "teste"})
+
   const MongoClient = require('mongodb').MongoClient;
   const uri    = 'mongodb://localhost:27017';
-  const dbName = 'pirulito';
+  const dbName = 'ipperTechnologies';
   const client = new MongoClient(uri);
 
   try {
-    // const client = await MongoClient.connect(url, { useUnifiedTopology: true });
     await client.connect();
+    console.log('Conexão com o banco de dados estabelecida.');
+
     const db = client.db(dbName);
-    const result = await db.collection('verifications').findOne({ name: "rodrigo" });
+    const verifications = db.collection("verifications");
+    let result = await verifications.findOne({ name: "rodrigo" })
+    // console.log(result.message)
 
-    return result;
-  } catch (error) {
-    console.error('Erro ao conectar ao banco de dados:', error);
-    throw error;
+    response.json(result)
+  } catch(error) {
+    console.error(error);
   }
-}
+  
 
-app.get("/api", (request, response) => {
-  try {
-    result = connectDB();
-    console.log(result)
-    return response.json(result.message);
-  } catch (error) {
-    console.error('Erro ao atualizar exemplo:', error);
-    throw error;
-  }
+  // try {
+  //   // const client = await MongoClient.connect(url, { useUnifiedTopology: true });
+  //   client.connect();
+  //   const db = client.db(dbName);
+  //   const result = db.collection('verifications').findOne({ name: "rodrigo" });
+
+  //   console.log(result.message)
+  //   return response.json(result.message);
+  // } catch (error) {
+  //   console.error('Erro ao conectar ao banco de dados:', error);
+  //   throw error;
+  // }
 });
 
 app.listen(PORT, () => {
