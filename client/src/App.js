@@ -4,8 +4,8 @@ import CapaceteOk from "./components/capaceteOk";
 import "./App.css";
 
 function App() {
-  const [message, setMessage] = React.useState(null);
-  const [verification, setVerification] = React.useState(false);
+  // const [message, setMessage] = React.useState(null);
+  const [isUsingHelmet, setIsUsingHelmet] = React.useState(false);
 
 
   React.useEffect(() => {
@@ -17,8 +17,8 @@ function fetchDatabase() {
   fetch("/api")
     .then((res) => res.json())
     .then((data) => {
-      setMessage(data.message)
-      setVerification(data.verification)
+      // setMessage(data.message)
+      setIsUsingHelmet(data.isUsingHelmet)
     }
     )
 }
@@ -26,8 +26,8 @@ function fetchDatabase() {
 return (
   <div className="App">
     <header className="App-header">
-      <p>{message ? message : "Loading..."}</p>
-      {verification ? <CapaceteOk/> : <Alerta/>}
+      {/* <p>{message ? message : "Loading..."}</p> */}
+      {isUsingHelmet ? <CapaceteOk/> : <Alerta/>}
     </header>
   </div>
 );
