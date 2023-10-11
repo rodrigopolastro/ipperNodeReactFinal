@@ -4,6 +4,7 @@ import { Transition } from '@headlessui/react'
 import Aviso from '../images/aviso.png'
 import Seguranca from '../images/seguranca.png'
 import Verificacao from '../images/verificacao.png'
+import './components.css'
 
 export default function Features() {
 
@@ -31,7 +32,7 @@ export default function Features() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="h2 mb-4 text-white">Como realmente funciona?</h1>
+            <h1 className="h2 mb-4 text-white titulo">Como realmente funciona?</h1>
           </div>
 
           {/* Section content */}

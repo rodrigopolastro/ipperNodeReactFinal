@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Logo from '../images/logo2.png'
+import './components.css'
 
 export default function Header() {
   // // detect whether user has scrolled the page down by 10px
@@ -32,7 +33,11 @@ export default function Header() {
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
-                <a href={'/verify'}>PÁGINA DE VERIFICAÇÃO</a>
+                <div style={{marginLeft:'1300%'}}>
+
+                <a href={'/verify'} className="botao">Verificar</a>
+                </div>
+               
                 {/* {state && <Verification />} */}
               </li>
             </ul>
