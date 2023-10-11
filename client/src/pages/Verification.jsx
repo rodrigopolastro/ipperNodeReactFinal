@@ -21,6 +21,7 @@ export default function Verification() {
 
   return (
     <div className="App">
+      <a href="/">Voltar para Home</a>
       <header className="App-header">
         {isUsingHelmet ? <CapaceteOk /> : <Alerta />}
       </header>

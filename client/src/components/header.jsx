@@ -32,7 +32,7 @@ export default function Header() {
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
-                <button>ENTRAR</button>
+                <a href={'/verify'}>PÁGINA DE VERIFICAÇÃO</a>
                 {/* {state && <Verification />} */}
               </li>
             </ul>
