@@ -1,36 +1,21 @@
 import React from "react";
-import Alerta from "./components/alerta";
-import CapaceteOk from "./components/capaceteOk";
-import "./App.css";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import './index.css'
+import './tailwindTop.css'
 
-function App() {
-  // const [message, setMessage] = React.useState(null);
-  const [isUsingHelmet, setIsUsingHelmet] = React.useState(false);
+import Home from './pages/Home'
+import Verification from './pages/Verification'
 
-
-  React.useEffect(() => {
-    setInterval(fetchDatabase, 2000);
-  },[]);
-
-function fetchDatabase() {
-  console.log("CHAMEI O BANCO!")
-  fetch("/api")
-    .then((res) => res.json())
-    .then((data) => {
-      // setMessage(data.message)
-      setIsUsingHelmet(data.isUsingHelmet)
-    }
-    )
+export default function App() {
+  return (
+    <>
+    <Home></Home>
+    <BrowserRouter>
+      <Routes>
+        <Route component={Home} path="/" />
+        <Route component={Verification} path="/verify" />
+      </Routes>
+    </BrowserRouter>
+    </>
+  )
 }
-
-return (
-  <div className="App">
-    <header className="App-header">
-      {/* <p>{message ? message : "Loading..."}</p> */}
-      {isUsingHelmet ? <CapaceteOk/> : <Alerta/>}
-    </header>
-  </div>
-);
-}
-
-export default App;
