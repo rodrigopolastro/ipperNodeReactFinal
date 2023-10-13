@@ -12,8 +12,8 @@ export default function Verification() {
   }, []);
 
   function fetchDatabase() {
-    console.log("CHAMEI O BANCO!")
-    fetch("/api")
+    // console.log("CHAMEI O BANCO!")
+    fetch("/getAlertValue")
       .then((response) => response.json())
       .then((data) => {
         setAlert(data.alert)
@@ -21,27 +21,15 @@ export default function Verification() {
       )
   }
 
-  // var request = require('request');
-  // function turnOffAlert(){
-  //   request.post({
-  //     headers: {'content-type' : 'application/json'},
-  //     url:     "/teste",
-  //     body:    "que vei"
-  //   }, function(error, response, body){
-  //     console.log(body);
-  //   });
-  // }
-
   return (
     <div className="bg-preto-fundo" >
 
-    <a href="/" className="btn-sm text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao" style={{marginTop:'5px'}}>Voltar para Home</a>
-    <div className="App flex items-center justify-center">
-      <header className="App-header">
-        <button>DESLIGAR ALERTA</button>
-        {isAlertOn ? <Alerta /> : <CapaceteOk /> }
-      </header>
-    </div>
+      <a href="/" className="btn-sm text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao" style={{ marginTop: '5px' }}>Voltar para Home</a>
+      <div className="App flex items-center justify-center">
+        <header className="App-header">
+          {isAlertOn ? <Alerta /> : <CapaceteOk />}
+        </header>
+      </div>
     </div>
   );
 }
