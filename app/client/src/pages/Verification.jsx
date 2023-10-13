@@ -8,7 +8,7 @@ export default function Verification() {
   const [isAlertOn, setAlert] = React.useState(false);
 
   React.useEffect(() => {
-    setInterval(fetchDatabase, 2000);
+    setInterval(fetchDatabase, 500);
   }, []);
 
   function fetchDatabase() {

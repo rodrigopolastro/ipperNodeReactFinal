@@ -32,7 +32,7 @@ app.get("/turnOffAlert", async (request, response) => {
     const db = client.db(dbName);
     // const verifications = db.collection("verifications");
     const verifications = db.collection("login");
-    verifications.updateOne({ _id: 1}, { $set: { alert: false } })
+    let result = await verifications.updateOne({ _id: 1}, { $set: { alert: false } })
   } catch (error) {
     console.error(error);
   }
