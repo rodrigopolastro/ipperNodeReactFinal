@@ -2,42 +2,43 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = 'mongodb://localhost:27017';
-// const dbName = 'ipperTechnologies';
-const dbName = 'ipper';
+const MongoClient = require("mongodb").MongoClient;
+const uri = "mongodb://localhost:27017";
+const dbName = "ipper";
 const client = new MongoClient(uri);
+let verification;
 
-app.get("/getAlertValue", async (request, response) => {
+async function connectDatabase() {
   try {
     await client.connect();
     const db = client.db(dbName);
-    // const verifications = db.collection("verifications");
-    const verifications = db.collection("login");
-    let result = await verifications.findOne()
+    verification = db.collection("verification")
+    app.listen(PORT, () => {
+      console.log(`Servidor rodando na porta: ${PORT}`);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+connectDatabase();
 
-    response.json(result)
+app.get("/getAlertValue", async (request, response) => {
+  try {
+    let result = await verification.findOne();
+    response.json(result);
   } catch (error) {
     console.error(error);
   }
 });
 
 app.get("/turnOffAlert", async (request, response) => {
-  // console.log("TESTE");
-  // console.log(request.body);
-
   try {
-    await client.connect();
-
-    const db = client.db(dbName);
-    // const verifications = db.collection("verifications");
-    const verifications = db.collection("login");
-    let result = await verifications.updateOne({ _id: 1}, { $set: { alert: false } })
+      await verification.updateOne(
+          { _id: 1 },
+          { $set: { alert: false } }
+        );
+      response.json({ result: "Alerta desligado"} )
   } catch (error) {
     console.error(error);
   }
-});
-
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta: ${PORT}`);
 });

@@ -1,15 +1,12 @@
 import React from "react";
 import noHelmetImg from "../images/noHelmet.png"
 
-
-export default function CapaceteOk(){
+export default function Alerta(){
   function turnOffAlert() {
-    // fetch("/teste", {
-    //   method: "POST",
-    //   headers: { 'content-type': 'application/json' },
-    //   body: JSON.stringify({ value: true })
-    // })
-    fetch("/turnOffAlert");
+    fetch("/turnOffAlert")
+    .then((response) => response.json())
+    .then((data) => { console.log(data.result) })
+    // clear the interval here (since it will just update when the button is clicked)
   }
 
   return (   
