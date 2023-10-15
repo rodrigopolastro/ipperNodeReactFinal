@@ -15,7 +15,7 @@ from datetime import datetime
 from verification import turnOnAlert, getAlertValue
 from alerts import registerAlert
 
-IMAGES_DIRECTORY = "C:/Users/gabri/Desktop/ipperNodeReactFinal/app/client/src/alertsImages"
+IMAGES_DIRECTORY = "C:Users/gabri/Desktop/ipperNodeReactFinal/app/client/src/images/alertsImages"
 is_alert_on = False
 p_time = 0
 
@@ -178,16 +178,16 @@ if (cap != None) and pred:
                 is_alert_on = True
 
                 current_date = datetime.now()
-                image_name = current_date.strftime("%Y-%m-%d, %H-%M-%S")
+                image_name = current_date.strftime("%Y-%m-%d, %H-%M-%S") + '.png'
                 date = current_date.strftime("%d/%m/%Y")
-                time = current_date.strftime("%H:%M:%S")
+                hora = current_date.strftime("%H:%M:%S")
                 location = "Setor 1 - Câmera 4"
 
-                cv2.imwrite(f"{IMAGES_DIRECTORY}/{image_name}.png", img)
+                cv2.imwrite(f"C:/Users/gabri/Desktop/ipperNodeReactFinal/app/client/src/images/alertsImages/{image_name}", img)
                 print('PRINT TIRADO!')
 
-                turnOnAlert(image_name, date, time, location)   # update 'verification' collection
-                registerAlert(image_name, date, time, location) # update 'alerts' collection
+                turnOnAlert(image_name, date, hora, location)   # update 'verification' collection
+                registerAlert(image_name, date, hora, location) # update 'alerts' collection
         else:
             is_alert_on = getAlertValue() #get value from database
 

@@ -4,14 +4,14 @@ client = MongoClient('mongodb://localhost:27017/')
 db = client['ipper']
 collection = db['verification']
 
-def turnOnAlert(image_name, date, time, location):
+def turnOnAlert(image_name, date, hora, location):
     collection.update_one(
         {"_id": 1},
         {"$set": {
             "isAlertOn": True,
             "imageName": image_name,
             "date": date,
-            "time": time,
+            "time": hora,
             "location": location
             }
         }

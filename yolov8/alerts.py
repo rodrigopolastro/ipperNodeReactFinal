@@ -17,11 +17,11 @@ client = MongoClient('mongodb://localhost:27017/')
 db = client['ipper']
 collection = db['alerts']
 
-def registerAlert(image_name, date, time, location):
+def registerAlert(image_name, date, hora, location):
     new_alert = {
         "imageName": image_name,
         "date": date,
-        "time": time,
+        "time": hora,
         "location": location
     }
     collection.insert_one(new_alert)
