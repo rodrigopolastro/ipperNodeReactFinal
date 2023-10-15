@@ -35,7 +35,7 @@ app.get("/turnOffAlert", async (request, response) => {
   try {
       await verification.updateOne(
           { _id: 1 },
-          { $set: { alert: false } }
+          { $set: { isAlertOn: false } }
         );
       response.json({ result: "Alerta desligado"} )
   } catch (error) {
