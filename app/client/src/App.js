@@ -9,6 +9,7 @@ import {
 
 import Home from './pages/Home'
 import Verification from './pages/Verification'
+import Alerts from './pages/Alerts'
 
 export default function App() {
   const router = createBrowserRouter([
@@ -19,6 +20,10 @@ export default function App() {
     {
       path: "/verify",
       element: <Verification />
+    },
+    {
+      path: "/alerts",
+      element: <Alerts />
     }
   ]);
 
@@ -27,20 +32,3 @@ export default function App() {
   )
 }
 
-// ReactDOM.createRoot(document.getElementById("root")).render(
-//   <RouterProvider router={router} />
-// );
-
-// export default function App() {
-//   return (
-//     <>
-//     <Home></Home>
-//     <BrowserRouter>
-//       <Routes>
-//         <Route component={Home} path="/" />
-//         <Route component={Verification} path="/verify" />
-//       </Routes>
-//     </BrowserRouter>
-//     </>
-//   )
-// }

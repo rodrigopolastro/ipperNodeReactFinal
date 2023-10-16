@@ -1,5 +1,5 @@
 import React from "react";
-import Alerta from "../components/alerta";
+import SemCapacete from "../components/semCapacete";
 import CapaceteOk from "../components/capaceteOk";
 import "./Verification.css";
 import "../components/components.css";
@@ -47,7 +47,7 @@ export default function Verification() {
   if (isAlertOn) {
     // clearInterval(intervalId)
     componentToRender = (
-      <Alerta
+      <SemCapacete
         alertDate={alertDate}
         alertTime={alertTime}
         alertImage={alertImage}

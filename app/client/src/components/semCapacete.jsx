@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Alerta({ alertDate, alertTime, alertImage, alertLocation }){
+export default function SemCapacete({ alertDate, alertTime, alertImage, alertLocation }){
   function turnOffAlert() {
     fetch("/turnOffAlert")
     .then((response) => response.json())

@@ -1,6 +1,6 @@
 import React from "react";
 import verificacao from "../images/verificacao.png"
-import "./alerta.css"
+import "./semCapacete.css"
 
 
 export default function CapaceteOk(){
