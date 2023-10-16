@@ -35,7 +35,7 @@ export default function Header() {
               <li>
                 <div style={{marginLeft:'1300%'}}>
 
-                <a href={'/verify'} className="botao">Verificar</a>
+                <a href='/verify' className="botao">Verificar</a>
                 </div>
                
                 {/* {state && <Verification />} */}

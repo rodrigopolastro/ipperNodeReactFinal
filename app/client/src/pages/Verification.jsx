@@ -2,7 +2,7 @@ import React from "react";
 import SemCapacete from "../components/semCapacete";
 import CapaceteOk from "../components/capaceteOk";
 import "./Verification.css";
-import "../components/components.css";
+import Logo from '../images/logo2.png'
 
 export default function Verification() {
   const [intervalId, setIntervalId] = React.useState(null);
@@ -63,8 +63,11 @@ export default function Verification() {
   return (
     <div className="bg-preto-fundo">
       <header className="ludmilo">
-        <a href="/" className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao">
-          Voltar
+        <a href="/" className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3">
+          <img src={Logo} alt="" />
+        </a>
+        <a href="/alerts" className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao">
+          Registro de Alertas
         </a>
       </header>
 
