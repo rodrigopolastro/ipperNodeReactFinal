@@ -1,5 +1,5 @@
 import React from "react";
-import Alerta from "../components/alerta";
+import SemCapacete from "../components/semCapacete";
 import CapaceteOk from "../components/capaceteOk";
 import "./Verification.css";
 import "../components/components.css";
@@ -47,7 +47,7 @@ export default function Verification() {
   if (isAlertOn) {
     // clearInterval(intervalId)
     componentToRender = (
-      <Alerta
+      <SemCapacete
         alertDate={alertDate}
         alertTime={alertTime}
         alertImage={alertImage}
@@ -62,18 +62,18 @@ export default function Verification() {
 
   return (
     <div className="bg-preto-fundo">
-      <a
-        href="/"
-        className="btn-sm text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao"
-        style={{ marginTop: "5px" }}
-      >
-        Voltar para Home
-      </a>
-      <div className="App flex items-center justify-center">
+      <header className="ludmilo">
+        <a href="/" className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao">
+          Voltar
+        </a>
+      </header>
+
+      <div className="App flex justify-center">
         {/* <header className="App-header"> */}
         {componentToRender}
         {/* </header> */}
       </div>
+
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Logo from '../images/logo2.png'
-import './components.css'
+import './header.css'
 
 export default function Header() {
   // // detect whether user has scrolled the page down by 10px
