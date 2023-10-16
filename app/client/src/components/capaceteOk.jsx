@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import verificacao from "../images/verificacao.png"
 import "./alerta.css"
 
 
-export default function CapaceteOk(){
+export default function CapaceteOk({ startQueries }){
+  useEffect(startQueries, [])
+
   return (
-    
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <div className="Card1">
           <div>

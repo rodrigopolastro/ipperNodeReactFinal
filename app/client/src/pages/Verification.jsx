@@ -1,23 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import SemCapacete from "../components/semCapacete";
 import CapaceteOk from "../components/capaceteOk";
 import "./Verification.css";
 import "../components/components.css";
 
 export default function Verification() {
-  const [intervalId, setIntervalId] = React.useState(null);
-  const [isAlertOn, setIsAlertOn] = React.useState(null);
-  const [alertImage, setAlertImage] = React.useState(null);
-  const [alertDate, setAlertDate] = React.useState(null);
-  const [alertTime, setAlertTime] = React.useState(null);
-  const [alertLocation, setAlertLocation] = React.useState(null);
+  const [intervalId, setIntervalId] = useState(null);
+  const [isAlertOn, setIsAlertOn] = useState(false);
+  const [alertImage, setAlertImage] = useState(null);
+  const [alertDate, setAlertDate] = useState(null);
+  const [alertTime, setAlertTime] = useState(null);
+  const [alertLocation, setAlertLocation] = useState(null);
 
-  function fetchDatabase() {
-    console.log("buscou o banco");
+  function getAlertValue() {
+    console.log("Buscou valor no banco.");
     fetch("/getAlertValue")
       .then((response) => response.json())
       .then((alert) => {
-        if (alert.isAlertOn) {
+        if (alert.isAlertOn === true) {
           setAlertImage(alert.imageName);
           setAlertDate(alert.date);
           setAlertTime(alert.time);
@@ -27,27 +27,13 @@ export default function Verification() {
       });
   }
 
-  function buscaRepetida() {
-    let interval = setInterval(fetchDatabase, 2000);
-    setIntervalId(interval);
-  }
-
-  React.useEffect(() => {
-    console.log("rodou o effect");
-    buscaRepetida();
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  // if(isAlertOn){
-  //   clearInterval(intervalId)
-  // }
-
   let componentToRender;
-  if (isAlertOn) {
-    // clearInterval(intervalId)
+  if (isAlertOn === true) {
     componentToRender = (
       <SemCapacete
+        stopQueries={() => { clearInterval(intervalId) }}
+        setAlertStateOff={() => setIsAlertOn(false)}
+
         alertDate={alertDate}
         alertTime={alertTime}
         alertImage={alertImage}
@@ -55,9 +41,14 @@ export default function Verification() {
       />
     );
   } else {
-    // setIntervalId(setInterval(fetchDatabase, 2000))
-    // buscaRepetida()
-    componentToRender = <CapaceteOk />;
+    componentToRender = (
+      <CapaceteOk
+        startQueries={() => {
+          let newIntervalId = setInterval(getAlertValue, 2000)
+          setIntervalId(newIntervalId)
+        }}
+      />
+    )
   }
 
   return (
@@ -69,11 +60,8 @@ export default function Verification() {
       </header>
 
       <div className="App flex justify-center">
-        {/* <header className="App-header"> */}
         {componentToRender}
-        {/* </header> */}
       </div>
-
     </div>
   );
 }
