@@ -1,15 +1,46 @@
 
 .botao{
-    background-color: #333333; 
+    background-color: #353558; 
     color: #dfdfdf;
     border-radius: 5px;
     font-size: 1rem;
     padding: 10px;
+    margin-top: 50px;
 }
 .botao:hover{
-    background-color: #4c4c4c; 
+    background-color: #5658dd; 
 }
 
 .titulo{
-    font-size: 2rem;
+    font-weight: bold;
+    font-size: 2rem
 }
+
+.ludmilo{
+    padding: 25px;
+}
+
+
+body::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #151719;        /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: rgb(116, 116, 116);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid #151719;  /* creates padding around scroll thumb */
+  }
+
+  .cards{
+    background-color: #252525;
+    color: #b3b3b3;
+  }
+
+  .tupan{
+    color: #b3b3b3;
+
+  }

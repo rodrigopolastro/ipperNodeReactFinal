@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SemCapacete({ alertDate, alertTime, alertImage, alertLocation }){
+export default function SemCapacete({ alertDate, alertTime, alertImage, alertLocation }) {
   function turnOffAlert() {
     fetch("/turnOffAlert")
     .then((response) => response.json())
@@ -8,23 +8,29 @@ export default function SemCapacete({ alertDate, alertTime, alertImage, alertLoc
     // TO DO: clear the interval here (since it will just update when the button is clicked)
   }
 
-  return (   
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-      <div style={{ flex: 1 }}>
-        <div className="Card">
-          <div>
-            <h1 className="texto">Funcionário sem capacete detectado!</h1>
-            <button onClick={turnOffAlert} className="botao">Verificar uso</button>
+  return (
+    <div style={{ alignItems: 'center'}}>
+          <h1 className="detect">FUNCIONÁRIO SEM CAPACETE DETECTADO!!</h1>
+
+      <div className="Card">
+
+
+
+
+        <div className="rodrigo">
+
+          <h1 className="texto1">Hoje às 12h00</h1>
+          <h1 className="texto">Localização: Atrás da escola</h1>
+          <button onClick={turnOffAlert} className="botao1">Verificado</button>
           </div>
-        </div>
+          <img style={{ marginTop: '20px',height: '480', width: '640px', borderRadius:'30px'}} src={require(`../images/alertsImages/${alertImage}`)} alt="" />
+
+
       </div>
-  
-      <div style={{ flex: 1, marginLeft: '200px' }}>
-        <h1 className="texto">Hoje às {alertTime}</h1>
-        <h1 className="texto">Localização: {alertLocation}</h1>
-        <img style= {{height: '650px', width: '650px'}} src={require(`../images/alertsImages/${alertImage}`)} alt="" />
-      </div>
+
     </div>
+
+
   );
 
 }
