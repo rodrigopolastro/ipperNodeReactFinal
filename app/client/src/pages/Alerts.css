@@ -54,7 +54,8 @@ body::-webkit-scrollbar-thumb {
   padding-top: 100px;
   padding-right: 100px; 
   padding-left: 100px; 
-
+  padding-bottom: 20px;
+  display: flex;
   width: max-content;
   margin-left: 310px;
 }
@@ -101,8 +102,29 @@ text-align: center;
 .dados{
   color: #6c6eff;
   font-weight: bold;
+  font-size:80%;
 }
 
 .App{
   height: 90vh;
+}
+
+.textop{
+  color: #6c6eff;
+  font-weight: bold;
+  margin-left: 38%;
+  margin-bottom: 2%;
+  font-size: 250%;
+}
+
+.dante{
+  color: #6c6eff;
+  font-weight: bold;
+  font-size:130%;
+}
+
+.nicoli{
+  color: #6c6eff;
+  font-weight: bold;
+  font-size:110%;
 }

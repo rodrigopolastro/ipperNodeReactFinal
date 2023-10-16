@@ -40,15 +40,15 @@ export default function Verification() {
           {alerts.map((alert, index) => (
             <div className="morango" key={index}>
               <h1 className='texto2'><span className='dados'>Alerta {index + 1}</span></h1>
-              <img style={{ width: "320px", borderRadius: "15px" }} onClick={() => {highlightAlert(alert, index)}} src={require(`../images/alertsImages/${alert.imageName}`)} />
+              <img style={{ width: "160px", height:"120px", borderRadius: "15px" }} onClick={() => {highlightAlert(alert, index)}} src={require(`../images/alertsImages/${alert.imageName}`)} />
             </div>
           ))}
         </div>
         <div className='alertaGrande'>
+          <h1 className='textop'><span className='dante'>Alerta {bigAlertIndex} </span></h1>
           <img style={{ width: "640px", height: "480px", borderRadius: "20px", marginBottom: '20px' }} src={require(`../images/alertsImages/${bigAlertImage}`)} />
-          <h1 className='texto2'><span className='dados'>Alerta {bigAlertIndex} </span></h1>
-          <h1 className='texto2'><span className='dados'>Captura em</span> {bigAlertFullDate}</h1>
-          <h1 className='texto2'><span className='dados'>Local:</span> {bigAlertLocation}</h1>
+          <h1 className='texto2'><span className='nicoli'>Captura em</span> {bigAlertFullDate}</h1>
+          <h1 className='texto2'><span className='nicoli'>Local:</span> {bigAlertLocation}</h1>
         </div>
       </div>
       </div>
