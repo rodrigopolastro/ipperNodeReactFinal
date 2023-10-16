@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SemCapacete from "../components/semCapacete";
 import CapaceteOk from "../components/capaceteOk";
 import "./Verification.css";
-import "../components/components.css";
+import Logo from '../images/logo2.png'
 
 export default function Verification() {
   const [intervalId, setIntervalId] = useState(null);
@@ -53,14 +53,41 @@ export default function Verification() {
 
   return (
     <div className="bg-preto-fundo">
-      <header className="ludmilo">
-        <a href="/" className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao">
-          Voltar
-        </a>
-      </header>
+      <header className='bg-preto-fundo backdrop-blur-sm shadow-lg header'>
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="flex items-center justify-between h-16 md:h-20">
+
+          {/* Site branding */}
+          <div className="shrink-0 mr-4">
+            <a href="/" className="block" aria-label="Cruip">
+              <img src={Logo} width={50} height={50} alt="IPPER" />
+            </a>
+          </div>
+
+          {/* Desktop navigation */}
+          <nav className="hidden md:flex md:grow">
+            {/* Desktop sign in links */}
+            <ul className="flex grow justify-end flex-wrap items-center">
+              <li>
+                <div style={{marginLeft:'1400%'}}>
+
+                <a href='/alerts' className="botao">Alertas</a>
+                </div>
+               
+                {/* {state && <Verification />} */}
+              </li>
+            </ul>
+
+          </nav>
+
+
+        </div>
+      </div>
+    </header>
 
       <div className="App flex justify-center">
         {componentToRender}
+        {/* </header> */}
       </div>
     </div>
   );

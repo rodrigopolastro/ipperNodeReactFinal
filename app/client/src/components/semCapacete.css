@@ -1,16 +1,16 @@
-/* .Card {
-    margin-top: 40px;
+.Card {
+    margin-top: 20px;
     position: relative;
     background-color: #151719;
     border-radius: 30px;
-    box-shadow: 0 0 80px #5658dd;
+    box-shadow: 0 0 50px #5658dd;
     transition: 0.5 linear;
     justify-content: center;
     align-items: center;
     display: flex;
     font-size: 1rem;
-    padding: 30px;
-} */
+    padding: 50px;
+}
 
 .Card1 {
     position: relative;
@@ -46,9 +46,22 @@
     font-size: 30px;
 }
 
+.textoj {
+    color: #dadff0;
+    font-size: 40px;
+    font-weight: bold;
+}
+
 .texto1 {
     color: #dadff0;
     font-size: 30px;
+}
+
+.texto2 {
+    color: #dadff0;
+    font-size: 180%;
+    margin-bottom: 20px;
+
 }
 
 .espaco {
@@ -71,14 +84,13 @@
     background-color: #5658dd;
 }
 
-.detect {
-    color: #dadff0;
-    font-size: 45px;
-    font-weight: bold;
-    margin-left: 120px;
-}
+
 
 .rodrigo{
     margin-right: 80px;
+    text-align: center;
+}
+
+.tudocerto{
     text-align: center;
 }

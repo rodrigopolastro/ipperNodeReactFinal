@@ -1,0 +1,130 @@
+
+.botao{
+  background-color: #353558; 
+  color: #dfdfdf;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 10px;
+  margin-top: 50px;
+}
+.botao:hover{
+  background-color: #5658dd; 
+}
+
+.titulo{
+  font-weight: bold;
+  font-size: 2rem
+}
+
+.ludmilo{
+  padding: 25px;
+}
+
+
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #151719;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(116, 116, 116);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #151719;  /* creates padding around scroll thumb */
+}
+
+.cards{
+  background-color: #252525;
+  color: #b3b3b3;
+}
+
+.tupan{
+  color: #b3b3b3;
+
+}
+.Card5 {
+  margin-top: 30px;
+  background-color: #151719;
+  border-radius: 30px;
+  box-shadow: 0 0 50px #5658dd;
+  transition: 0.5 linear;
+  font-size: 1rem;
+  padding-top: 100px;
+  padding-right: 100px; 
+  padding-left: 100px; 
+  padding-bottom: 20px;
+  display: flex;
+  width: max-content;
+  margin-left: 310px;
+}
+
+
+body{
+  background-color: #151719;
+}
+
+.alertas  {
+  margin-right: 150px;
+  max-height: 600px;
+  overflow: auto;
+  padding-right: 20px;
+}
+
+.alertas::-webkit-scrollbar {
+  width: 12px;     
+  margin-left: 10px;          /* width of the entire scrollbar */
+}
+
+.alertas::-webkit-scrollbar-track {
+  background: #151719;        /* color of the tracking area */
+}
+
+.alertas::-webkit-scrollbar-thumb {
+  background-color: #5658dd;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #151719;  /* creates padding around scroll thumb */
+}
+
+.morango{
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.titulo1{
+  font-weight: bold;
+  font-size: 50px;
+  color: #dfdfdf;
+text-align: center;
+}
+
+.dados{
+  color: #6c6eff;
+  font-weight: bold;
+  font-size:80%;
+}
+
+.App{
+  height: 90vh;
+}
+
+.textop{
+  color: #6c6eff;
+  font-weight: bold;
+  margin-left: 38%;
+  margin-bottom: 2%;
+  font-size: 250%;
+}
+
+.dante{
+  color: #6c6eff;
+  font-weight: bold;
+  font-size:130%;
+}
+
+.nicoli{
+  color: #6c6eff;
+  font-weight: bold;
+  font-size:110%;
+}
