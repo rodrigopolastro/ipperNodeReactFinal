@@ -4,7 +4,6 @@ import { Transition } from '@headlessui/react'
 import Aviso from '../images/aviso.png'
 import Seguranca from '../images/seguranca.png'
 import Verificacao from '../images/verificacao.png'
-import './components.css'
 
 export default function Features() {
 
@@ -44,33 +43,33 @@ export default function Features() {
               {/* Tabs buttons */}
               <div className="mb-8 md:mb-0">
                 <a
-                  className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== 1 ? 'bg-preto-fundo shadow-md border-transparent hover:shadow-lg' : 'bg-gray-800 border-transparent'}`}
+                  className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== 1 ? 'bg-preto-fundo shadow-md border-transparent hover:shadow-lg' : 'cards border-transparent'}`}
                   href="#0"
                   onClick={(e) => { e.preventDefault(); setTab(1); }}
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1 text-white">Segurança</div>
-                    <div className="text-gray-600">Com a IPPER é possivel verificar se os funcionários estão utilizando o capacete de segurança, isso aumenta a segurança na empresa. Essa tecnologia permite que a empresa identifique, em tempo real, se o trabalhador está cumprindo as normas de segurança estabelecidas. Isso reduz o risco de acidentes e aumenta a eficácia das medidas de segurança no trabalho</div>
+                    <div className='tupan'>Com a IPPER é possivel verificar se os funcionários estão utilizando o capacete de segurança, isso aumenta a segurança na empresa. Essa tecnologia permite que a empresa identifique, em tempo real, se o trabalhador está cumprindo as normas de segurança estabelecidas. Isso reduz o risco de acidentes e aumenta a eficácia das medidas de segurança no trabalho</div>
                   </div>
                 </a>
                 <a
-                  className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== 2 ? 'bg-preto-fundo shadow-md border-transparent hover:shadow-lg' : 'bg-gray-800 border-transparent'}`}
+                  className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== 2 ? 'bg-preto-fundo shadow-md border-transparent hover:shadow-lg' : 'cards border-transparent'}`}
                   href="#0"
                   onClick={(e) => { e.preventDefault(); setTab(2); }}
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1 text-white">Verificação</div>
-                    <div className="text-gray-600">Caso algum funcionário não esteja usando o capacete, ou esteja usando ele incorretamente, a verificação por meio de visão computacional diferenciará esse funcionário dos demais com a cor vermelha em seu quadrado de reconhecimento.</div>
+                    <div className='tupan'>Caso algum funcionário não esteja usando o capacete, ou esteja usando ele incorretamente, a verificação por meio de visão computacional diferenciará esse funcionário dos demais com a cor vermelha em seu quadrado de reconhecimento.</div>
                   </div>
                 </a>
                 <a
-                  className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== 3 ? 'bg-preto-fundo shadow-md border-transparent hover:shadow-lg' : 'bg-gray-800 border-transparent'}`}
+                  className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== 3 ? 'bg-preto-fundo shadow-md border-transparent hover:shadow-lg' : 'cards border-transparent'}`}
                   href="#0"
                   onClick={(e) => { e.preventDefault(); setTab(3); }}
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1 text-white">Aviso</div>
-                    <div className="text-gray-600">Quando um funcionário não faz o uso correto do seu equipamento de segurança, um aviso será enviado para seu supervisor, para que ele possa alertar o funcionário, para que ele use corretamente seu equipamento de proteção para garantir sua segurança.</div>
+                    <div className='tupan'>Quando um funcionário não faz o uso correto do seu equipamento de segurança, um aviso será enviado para seu supervisor, para que ele possa alertar o funcionário, para que ele use corretamente seu equipamento de proteção para garantir sua segurança.</div>
                   </div>
                 </a>
               </div>

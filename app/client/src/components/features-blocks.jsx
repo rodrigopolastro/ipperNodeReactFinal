@@ -12,7 +12,7 @@ export default function FeaturesBlocks() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 mb-4 text-white">Sobre o projeto</h2>
+            <h2 className="h2 mb-4 text-white titulo">Sobre o projeto</h2>
             <p className="text-xl text-gray-600">A IPPER usa tecnologia de visão computacional para identificar automaticamente se os funcionários estão usando capacete de segurança, oferencendo soluções eficazes para melhorar a segurança no local de trabalho e proteger os funcionários</p>
           </div>
 

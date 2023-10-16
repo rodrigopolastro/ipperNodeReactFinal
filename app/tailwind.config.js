@@ -51,6 +51,7 @@ module.exports = {
         },
         preto: {
           fundo: '#151719',
+          fundo1: '#414141'
         }
       },
       boxShadow: {
