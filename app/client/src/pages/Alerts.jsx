@@ -60,7 +60,7 @@ export default function Verification() {
 
   return (
     <div>
-      <header style={{ padding: "40px" }}>
+      <header style={{ paddingTop: "20px" }}>
         <a
           href="/verify"
           className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao"

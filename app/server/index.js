@@ -16,7 +16,6 @@ async function connectDatabase() {
     alerts = db.collection("alerts")
     app.listen(PORT, () => {
       console.log(`Servidor rodando na porta: ${PORT}`);
-      // console.log(alerts.findOne())
     });
   } catch (error) {
     console.error(error);
@@ -47,9 +46,8 @@ app.get("/turnOffAlert", async (request, response) => {
 
 app.get("/getAllAlerts", async (request, response) => {
   try {
-    let cursor = await alerts.find({});
+    let cursor = await alerts.find({}).limit(20) //.limit(20)
     let results = await cursor.toArray()
-    // console.log(Array.isArray(results))
     response.send(results);
   } catch (error) {
     console.error(error);

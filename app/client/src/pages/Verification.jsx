@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import SemCapacete from "../components/semCapacete";
 import CapaceteOk from "../components/capaceteOk";
-import "../tailwindTop.css"
+import "../tailwindTop.css";
 import "./Verification.css";
-import Logo from '../images/logo2.png'
+import Logo from "../images/logo2.png";
 
 export default function Verification() {
   const [intervalId, setIntervalId] = useState(null);
@@ -32,9 +32,10 @@ export default function Verification() {
   if (isAlertOn === true) {
     componentToRender = (
       <SemCapacete
-        stopQueries={() => { clearInterval(intervalId) }}
+        stopQueries={() => {
+          clearInterval(intervalId);
+        }}
         setAlertStateOff={() => setIsAlertOn(false)}
-
         alertDate={alertDate}
         alertTime={alertTime}
         alertImage={alertImage}
@@ -45,38 +46,39 @@ export default function Verification() {
     componentToRender = (
       <CapaceteOk
         startQueries={() => {
-          let newIntervalId = setInterval(getAlertValue, 2000)
-          setIntervalId(newIntervalId)
+          let newIntervalId = setInterval(getAlertValue, 2000);
+          setIntervalId(newIntervalId);
         }}
       />
-    )
+    );
   }
 
   return (
     <div className="bg-preto-fundo">
-      <header className='bg-preto-fundo backdrop-blur-sm shadow-lg header'>
-      <div className="max-w-6xl mx-auto px-5 sm:px-6">
-        {/* <div className="flex items-center justify-between h-16 md:h-20"> */}
-        <div style={{paddingTop: "10px", display: "flex", justifyContent: "space-between"}}>
-
-          {/* Site branding */}
-          {/* <div className="shrink-0 mr-4"> */}
-            <a href="/" className="block" aria-label="Cruip">
-              <img src={Logo} width={50} height={50} alt="IPPER" />
-            </a>
-            <a href='/alerts' className="botao">Alertas</a>
-          {/* </div> */}
-
-         
-
-
-        </div>
-      </div>
-    </header>
-
+      <header
+        style={{
+          margin: "0 auto",
+          width: "70%",
+          paddingTop: "15px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center"
+        }}
+      >
+        <a href="/" className="block" aria-label="Cruip">
+          <img src={Logo} width={50} height={50} alt="IPPER" />
+        </a>
+        <a
+          href="/alerts"
+          className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao"
+        >
+          Alertas
+        </a>
+        
+      </header>
+    
       <div className="App flex justify-center">
         {componentToRender}
-        {/* </header> */}
       </div>
     </div>
   );

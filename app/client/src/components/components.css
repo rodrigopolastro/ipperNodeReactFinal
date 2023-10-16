@@ -3,9 +3,9 @@
     background-color: #353558; 
     color: #dfdfdf;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 0.7rem;
     padding: 10px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 .botao:hover{
     background-color: #5658dd; 
