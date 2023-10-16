@@ -31,9 +31,9 @@ export default function Verification() {
           Voltar
         </a>
       </header>
-
+    <div className='App'>
       <h1 className='titulo1'>Lista de alertas</h1>
-      <div className='Card'>
+      <div className='Card5'>
 
         <div className="alertas">
 
@@ -50,6 +50,7 @@ export default function Verification() {
           <h1 className='texto2'><span className='dados'>Captura em</span> {bigAlertFullDate}</h1>
           <h1 className='texto2'><span className='dados'>Local:</span> {bigAlertLocation}</h1>
         </div>
+      </div>
       </div>
     </div>
   );

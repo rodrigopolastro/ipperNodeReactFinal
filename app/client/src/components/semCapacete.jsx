@@ -1,4 +1,5 @@
 import React from "react";
+import './alerta.css'
 
 export default function SemCapacete({ alertDate, alertTime, alertImage, alertLocation }) {
   function turnOffAlert() {
@@ -9,7 +10,7 @@ export default function SemCapacete({ alertDate, alertTime, alertImage, alertLoc
   }
 
   return (
-    <div style={{ alignItems: 'center' }}>
+    <div style={{ alignItems: 'center', justifyContent: 'center', justifyItems:'center'}} >
       <h1 className="detect">FUNCIONÁRIO SEM CAPACETE DETECTADO!!</h1>
 
       <div className="Card">
@@ -23,7 +24,7 @@ export default function SemCapacete({ alertDate, alertTime, alertImage, alertLoc
           <h1 className="texto">Localização: Atrás da escola</h1>
           <button onClick={turnOffAlert} className="botao1">Verificado</button>
         </div>
-        <img style={{ marginTop: '20px', height: '480', width: '640px', borderRadius: '30px' }} src={require(`../images/alertsImages/${alertImage}`)} alt="" />
+        <img style={{ marginTop: '20px', height: '480', width: '640px', borderRadius: '30px' }} src={require(`../images/alertsImages/cachorro.jpg`)} alt="" />
 
 
       </div>

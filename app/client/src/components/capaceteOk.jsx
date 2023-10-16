@@ -3,20 +3,23 @@ import verificacao from "../images/verificacao.png"
 import "./semCapacete.css"
 
 
-export default function CapaceteOk(){
+export default function CapaceteOk() {
   return (
-    
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-        <div className="Card1">
-          <div>
-            <h1 className="texto">Capacete sendo usado corretamente!</h1>
-          </div>
 
-      <div style={{ flex: 1, marginLeft: '200px' }}>
-        <img style= {{height: '650px', width: '650px'}} src={verificacao} alt="" />
-      </div>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div className="Card1">
+
+
+        <div>
+          <img style={{ height: '450px' }} src={verificacao} alt="" />
         </div>
-  
+        <div className='tudocerto'>
+          <h1 className="textoj">Tudo certo por aqui...</h1>
+
+        </div>
+
+      </div>
+
     </div>
   );
 

@@ -44,8 +44,7 @@ body::-webkit-scrollbar-thumb {
   color: #b3b3b3;
 
 }
-
-.Card {
+.Card5 {
   margin-top: 30px;
   background-color: #151719;
   border-radius: 30px;
@@ -102,4 +101,8 @@ text-align: center;
 .dados{
   color: #6c6eff;
   font-weight: bold;
+}
+
+.App{
+  height: 90vh;
 }

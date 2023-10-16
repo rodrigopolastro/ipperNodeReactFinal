@@ -62,18 +62,42 @@ export default function Verification() {
 
   return (
     <div className="bg-preto-fundo">
-      <header className="ludmilo">
-        <a href="/" className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3">
-          <img src={Logo} alt="" />
-        </a>
-        <a href="/alerts" className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao">
-          Registro de Alertas
-        </a>
-      </header>
+      <header className='bg-preto-fundo backdrop-blur-sm shadow-lg header'>
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="flex items-center justify-between h-16 md:h-20">
+
+          {/* Site branding */}
+          <div className="shrink-0 mr-4">
+            <a href="/" className="block" aria-label="Cruip">
+              <img src={Logo} width={50} height={50} alt="IPPER" />
+            </a>
+          </div>
+
+          {/* Desktop navigation */}
+          <nav className="hidden md:flex md:grow">
+            {/* Desktop sign in links */}
+            <ul className="flex grow justify-end flex-wrap items-center">
+              <li>
+                <div style={{marginLeft:'1400%'}}>
+
+                <a href='/alerts' className="botao">Alertas</a>
+                </div>
+               
+                {/* {state && <Verification />} */}
+              </li>
+            </ul>
+
+          </nav>
+
+
+        </div>
+      </div>
+    </header>
 
       <div className="App flex justify-center">
         {/* <header className="App-header"> */}
         {componentToRender}
+        {/* <SemCapacete/> */}
         {/* </header> */}
       </div>
 
