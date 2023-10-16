@@ -3,9 +3,9 @@
   background-color: #353558; 
   color: #dfdfdf;
   border-radius: 5px;
-  font-size: 1rem;
-  padding: 10px;
-  margin-top: 50px;
+  font-size: 2rem;
+  padding: 8px 20px;
+  /* margin-top: 50px; */
 }
 .botao:hover{
   background-color: #5658dd; 
@@ -51,13 +51,14 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 0 0 50px #5658dd;
   transition: 0.5 linear;
   font-size: 1rem;
-  padding-top: 100px;
+  padding-top: 20px;
   padding-right: 100px; 
   padding-left: 100px; 
   padding-bottom: 20px;
-  display: flex;
+  
   width: max-content;
-  margin-left: 310px;
+  /* margin-left: 310px; */
+  margin: 0 auto;
 }
 
 
@@ -69,7 +70,7 @@ body{
   margin-right: 150px;
   max-height: 600px;
   overflow: auto;
-  padding-right: 20px;
+  padding: 20px;
 }
 
 .alertas::-webkit-scrollbar {
@@ -88,15 +89,29 @@ body{
 }
 
 .morango{
-  margin-bottom: 60px;
+  margin-bottom: 15px;
   text-align: center;
+  background-color: #121215;
+  padding: 0 40px 20px;
+  border-radius: 15px;
+}
+
+.morango:hover{
+  cursor: pointer;
 }
 
 .titulo1{
   font-weight: bold;
-  font-size: 50px;
+  font-size: 60px;
   color: #dfdfdf;
-text-align: center;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.texto65{
+  font-size: 20px;
+  color: #dfdfdf;
+  text-align: center;
 }
 
 .dados{
@@ -116,6 +131,13 @@ text-align: center;
   margin-bottom: 2%;
   font-size: 250%;
 }
+
+.textow{
+  color: #6c6eff;
+  font-weight: bold;
+  font-size: 150%;
+}
+
 
 .dante{
   color: #6c6eff;

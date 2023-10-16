@@ -13,11 +13,6 @@ export default function CapaceteOk({ startQueries }) {
         justifyContent: "center",
       }}
     >
-      <div className="Card1">
-        <div>
-          <h1 className="texto">Capacete sendo usado corretamente!</h1>
-        </div>
-      </div>
       <div
         style={{
           display: "flex",
