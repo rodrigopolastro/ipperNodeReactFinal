@@ -4,7 +4,7 @@ import "./Alerts.css";
 
 export default function Verification() {
   const [alerts, setAlerts] = useState([]);
-  const [bigAlertImage, setBigAlertImage] = useState("placeholder.jpg");
+  const [bigAlertImage, setBigAlertImage] = useState("placeholder.png");
   const [bigAlertFullDate, setBigAlertFullDate] = useState(null);
   const [bigAlertLocation, setBigAlertLocation] = useState(null);
   const [bigAlertIndex, setBigAlertIndex] = useState(null);
@@ -30,7 +30,7 @@ export default function Verification() {
 
   //If no alert was clicked
   let bigAlertTitle, bigAlertInfo;
-  if (bigAlertImage === "placeholder.jpg") {
+  if (bigAlertImage === "placeholder.png") {
     bigAlertTitle = (
       <div style={{ display: "flex", justifyContent: "center" }}>
         <h1 className="textow">
