@@ -46,9 +46,11 @@ export default function Verification() {
     );
   } else {
     bigAlertTitle = (
-      <h1 className="textop">
-        <span className="dante">Alerta {bigAlertIndex} </span>
-      </h1>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <h1 className="textop">
+          <span className="dante">Alerta {bigAlertIndex}</span>
+        </h1>
+      </div>
     );
     bigAlertInfo = (
       <div>
