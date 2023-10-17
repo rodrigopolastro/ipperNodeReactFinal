@@ -4,6 +4,7 @@ import "./Alerts.css";
 
 export default function Verification() {
   const [alerts, setAlerts] = useState([]);
+  const [alertsCounter, setAlertsCounter] = useState(0);
   const [bigAlertImage, setBigAlertImage] = useState("placeholder.png");
   const [bigAlertFullDate, setBigAlertFullDate] = useState(null);
   const [bigAlertLocation, setBigAlertLocation] = useState(null);
@@ -14,7 +15,10 @@ export default function Verification() {
     // let counter=0;
     fetch("/getAllAlerts")
       .then((response) => response.json())
-      .then((data) => setAlerts(data))
+      .then((data) => {
+        setAlerts(data)
+        setAlertsCounter(data.length)
+      })
       .catch((error) => console.error("Erro:", error));
   }, []);
 
@@ -22,7 +26,7 @@ export default function Verification() {
     setBigAlertImage(alert.imageName);
     setBigAlertFullDate(alert.date + " às " + alert.time);
     setBigAlertLocation(alert.location);
-    setBigAlertIndex(20 - index);
+    setBigAlertIndex(alertsCounter - index);
 
     //Variable to track current highlighted alert using its unique image name
     setClickedAlertImage(alert.imageName)
@@ -53,13 +57,15 @@ export default function Verification() {
       </div>
     );
     bigAlertInfo = (
-      <div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div>
         <h1 className="texto2">
           <span className="nicoli">Captura em</span> {bigAlertFullDate}
         </h1>
         <h1 className="texto2">
           <span className="nicoli">Local:</span> {bigAlertLocation}
         </h1>
+        </div>
       </div>
     );
   }
@@ -89,7 +95,7 @@ export default function Verification() {
                 >
                   <h1 className="texto2">
                     {/* 20 - index because we only query the last 20 alerts*/}
-                    <span className="dados">Alerta {20 - index}</span>
+                    <span className="dados">Alerta {alertsCounter - index}</span>
                   </h1>
                   <img
                     style={{
@@ -107,7 +113,6 @@ export default function Verification() {
               {bigAlertTitle}
               <img
                 style={{
-                  width: "640px",
                   height: "480px",
                   borderRadius: "20px",
                   marginBottom: "20px",

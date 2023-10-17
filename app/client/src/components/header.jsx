@@ -31,7 +31,7 @@ export default function Header() {
         <img src={Logo} width={50} height={50} alt="IPPER" />
       </a>
       <a
-        href="/alerts"
+        href="/verify"
         className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao"
       >
         Verificar 
