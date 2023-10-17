@@ -1,0 +1,161 @@
+
+h1{
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+}
+
+.botao{
+  background-color: #353558; 
+  color: #dfdfdf;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  padding: 8px 15px;
+  /* margin-top: 50px; */
+}
+.botao:hover{
+  background-color: #5658dd; 
+}
+
+.titulo{
+  font-weight: bold;
+  font-size: 2rem
+}
+
+.ludmilo{
+  padding: 25px;
+}
+
+
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #151719;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(116, 116, 116);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #151719;  /* creates padding around scroll thumb */
+}
+
+.cards{
+  background-color: #252525;
+  color: #b3b3b3;
+}
+
+.tupan{
+  color: #b3b3b3;
+
+}
+.Card5 {
+  margin-top: 30px;
+  background-color: #151719;
+  border-radius: 30px;
+  box-shadow: 0 0 50px #5658dd;
+  transition: 0.5 linear;
+  font-size: 1rem;
+  padding-top: 20px;
+  padding-right: 100px; 
+  padding-left: 100px; 
+  padding-bottom: 20px;
+  
+  width: max-content;
+  /* margin-left: 310px; */
+  margin: 0 auto;
+}
+
+
+body{
+  background-color: #151719;
+}
+
+.alertas  {
+  margin-right: 150px;
+  max-height: 600px;
+  overflow: auto;
+  padding: 20px;
+}
+
+.alertas::-webkit-scrollbar {
+  width: 12px;     
+  margin-left: 10px;          /* width of the entire scrollbar */
+}
+
+.alertas::-webkit-scrollbar-track {
+  background: #151719;        /* color of the tracking area */
+}
+
+.alertas::-webkit-scrollbar-thumb {
+  background-color: #5658dd;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #151719;  /* creates padding around scroll thumb */
+}
+
+.alert-div{
+  margin-bottom: 15px;
+  text-align: center;
+  background-color: #121215;
+  padding: 0 40px 20px;
+  border-radius: 15px;
+}
+
+.alert-div:hover{
+  cursor: pointer;
+}
+
+.selected{
+  box-shadow: 0 0 10px #5658dd;
+}
+
+
+.titulo1{
+  font-weight: bold;
+  font-size: 60px;
+  color: #dfdfdf;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.texto65{
+  font-size: 20px;
+  color: #dfdfdf;
+  text-align: center;
+}
+
+.dados{
+  color: #6c6eff;
+  font-weight: bold;
+  font-size:80%;
+}
+
+.App{
+  height: 90vh;
+}
+
+.textop{
+  color: #6c6eff;
+  font-weight: bold;
+  margin-left: 38%;
+  margin-bottom: 2%;
+  font-size: 250%;
+}
+
+.textow{
+  color: #6c6eff;
+  font-weight: bold;
+  font-size: 150%;
+}
+
+
+.dante{
+  color: #6c6eff;
+  font-weight: bold;
+  font-size:130%;
+}
+
+.nicoli{
+  color: #6c6eff;
+  font-weight: bold;
+  font-size:110%;
+}

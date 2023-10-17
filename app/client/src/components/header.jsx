@@ -1,14 +1,14 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Logo from '../images/logo2.png'
-import './header.css'
+import { useState, useEffect } from "react";
+import Logo from "../images/logo2.png";
+import "./header.css";
 
 export default function Header() {
   // // detect whether user has scrolled the page down by 10px
   // const scrollHandler = () => {
   //   window.pageYOffset > 10 ? setTop(false) : setTop(true)
-  // }  
+  // }
 
   // useEffect(() => {
   //   scrollHandler()
@@ -17,36 +17,25 @@ export default function Header() {
   // }, [top])
 
   return (
-    <header className='bg-preto-fundo backdrop-blur-sm shadow-lg'>
-      <div className="max-w-6xl mx-auto px-5 sm:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
-
-          {/* Site branding */}
-          <div className="shrink-0 mr-4">
-            <a href="/" className="block" aria-label="Cruip">
-              <img src={Logo} width={50} height={50} alt="IPPER" />
-            </a>
-          </div>
-
-          {/* Desktop navigation */}
-          <nav className="hidden md:flex md:grow">
-            {/* Desktop sign in links */}
-            <ul className="flex grow justify-end flex-wrap items-center">
-              <li>
-                <div style={{marginLeft:'1300%'}}>
-
-                <a href={'/verify'} className="botao">Verificar</a>
-                </div>
-               
-                {/* {state && <Verification />} */}
-              </li>
-            </ul>
-
-          </nav>
-
-
-        </div>
-      </div>
+    <header
+      style={{
+        margin: "0 auto",
+        width: "70%",
+        paddingTop: "15px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <a href="/" className="block" aria-label="Cruip">
+        <img src={Logo} width={50} height={50} alt="IPPER" />
+      </a>
+      <a
+        href="/alerts"
+        className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao"
+      >
+        Verificar 
+      </a>
     </header>
-  )
+  );
 }

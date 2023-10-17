@@ -9,11 +9,14 @@ from collections import Counter
 import json
 import pandas as pd
 from model_utils import get_yolo, color_picker_fn, get_system_stat
-from conexao import turnOnAlert, getAlertValue
-from alertas import registerAlert
 from datetime import datetime
 # from ultralytics import YOLO
-alert = False
+
+from verification import turnOnAlert, getAlertValue
+from alerts import registerAlert
+
+IMAGES_DIRECTORY = "C:Users/gabri/Desktop/ipperNodeReactFinal/app/client/src/images/alertsImages"
+is_alert_on = False
 p_time = 0
 
 
@@ -168,22 +171,25 @@ if (cap != None) and pred:
         class_fq = json.dumps(class_fq, indent = 4)
         class_fq = json.loads(class_fq)
         df_fq = pd.DataFrame(class_fq.items(), columns=['Class', 'Number'])
-        # print(class_fq)
 
-        # alerta = getAlertValue()
-        if alert is False:
+        # TIRA PRINT E INFORMA O BANCO DE DADOS
+        if is_alert_on is False:
             if 'head' in class_fq:
-                alert = True
-                hora = datetime.now()
-                current_date = hora.strftime("%Y-%m-%d, %H-%M-%S")
-                cv2.imwrite(f"C:/Users/gabri/Desktop/ipperNodeReactFinal/app/client/prints-alerts/{current_date}.png", img)
-                print('PRINT TIRADO!')
-                registerAlert(hora)
-                turnOnAlert() # update value in database
+                is_alert_on = True
 
+                current_date = datetime.now()
+                image_name = current_date.strftime("%Y-%m-%d, %H-%M-%S") + '.png'
+                date = current_date.strftime("%d/%m/%Y")
+                hora = current_date.strftime("%H:%M:%S")
+                location = "Setor 1 - Câmera 4"
+
+                cv2.imwrite(f"C:/Users/gabri/Desktop/ipperNodeReactFinal/app/client/src/images/alertsImages/{image_name}", img)
+                print('PRINT TIRADO!')
+
+                turnOnAlert(image_name, date, hora, location)   # update 'verification' collection
+                registerAlert(image_name, date, hora, location) # update 'alerts' collection
         else:
-            #get value from database
-            alert = getAlertValue()
+            is_alert_on = getAlertValue() #get value from database
 
         # Updating Inference results
         get_system_stat(stframe1, stframe2, stframe3, fps, df_fq)

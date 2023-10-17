@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import SemCapacete from "../components/semCapacete";
 import CapaceteOk from "../components/capaceteOk";
+import "../tailwindTop.css";
 import "./Verification.css";
-import "../components/components.css";
+import Logo from "../images/logo2.png";
 
 export default function Verification() {
-  const [intervalId, setIntervalId] = React.useState(null);
-  const [isAlertOn, setIsAlertOn] = React.useState(null);
-  const [alertImage, setAlertImage] = React.useState(null);
-  const [alertDate, setAlertDate] = React.useState(null);
-  const [alertTime, setAlertTime] = React.useState(null);
-  const [alertLocation, setAlertLocation] = React.useState(null);
+  const [intervalId, setIntervalId] = useState(null);
+  const [isAlertOn, setIsAlertOn] = useState(false);
+  const [alertImage, setAlertImage] = useState(null);
+  const [alertDate, setAlertDate] = useState(null);
+  const [alertTime, setAlertTime] = useState(null);
+  const [alertLocation, setAlertLocation] = useState(null);
 
-  function fetchDatabase() {
-    console.log("buscou o banco");
+  function getAlertValue() {
+    console.log("Buscou valor no banco.");
     fetch("/getAlertValue")
       .then((response) => response.json())
       .then((alert) => {
-        if (alert.isAlertOn) {
+        if (alert.isAlertOn === true) {
           setAlertImage(alert.imageName);
           setAlertDate(alert.date);
           setAlertTime(alert.time);
@@ -27,27 +28,14 @@ export default function Verification() {
       });
   }
 
-  function buscaRepetida() {
-    let interval = setInterval(fetchDatabase, 2000);
-    setIntervalId(interval);
-  }
-
-  React.useEffect(() => {
-    console.log("rodou o effect");
-    buscaRepetida();
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  // if(isAlertOn){
-  //   clearInterval(intervalId)
-  // }
-
   let componentToRender;
-  if (isAlertOn) {
-    // clearInterval(intervalId)
+  if (isAlertOn === true) {
     componentToRender = (
       <SemCapacete
+        stopQueries={() => {
+          clearInterval(intervalId);
+        }}
+        setAlertStateOff={() => setIsAlertOn(false)}
         alertDate={alertDate}
         alertTime={alertTime}
         alertImage={alertImage}
@@ -55,25 +43,43 @@ export default function Verification() {
       />
     );
   } else {
-    // setIntervalId(setInterval(fetchDatabase, 2000))
-    // buscaRepetida()
-    componentToRender = <CapaceteOk />;
+    componentToRender = (
+      <CapaceteOk
+        startQueries={() => {
+          let newIntervalId = setInterval(getAlertValue, 2000);
+          setIntervalId(newIntervalId);
+        }}
+      />
+    );
   }
 
   return (
     <div className="bg-preto-fundo">
-      <header className="ludmilo">
-        <a href="/" className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao">
-          Voltar
+      <header
+        style={{
+          margin: "0 auto",
+          width: "70%",
+          paddingTop: "15px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center"
+        }}
+      >
+        <a href="/" className="block" aria-label="Cruip">
+          <img src={Logo} width={50} height={50} alt="IPPER" />
         </a>
+        <a
+          href="/alerts"
+          className="text-gray-200 bg-gray-800 hover:bg-gray-700 ml-3 botao"
+        >
+          Alertas
+        </a>
+        
       </header>
-
+    
       <div className="App flex justify-center">
-        {/* <header className="App-header"> */}
         {componentToRender}
-        {/* </header> */}
       </div>
-
     </div>
   );
 }

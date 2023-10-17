@@ -1,36 +1,54 @@
-import React from "react";
+import React, { useEffect } from "react";
+import "./alerta.css";
 
-export default function SemCapacete({ alertDate, alertTime, alertImage, alertLocation }) {
+export default function SemCapacete({
+  stopQueries,
+  setAlertStateOff,
+  alertDate,
+  alertTime,
+  alertImage,
+  alertLocation,
+}) {
+  useEffect(stopQueries, []);
+
   function turnOffAlert() {
+    setAlertStateOff();
     fetch("/turnOffAlert")
-    .then((response) => response.json())
-    .then((data) => { console.log(data.result) })
-    // TO DO: clear the interval here (since it will just update when the button is clicked)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Resultado da requisição: " + data.result);
+      });
   }
 
   return (
-    <div style={{ alignItems: 'center'}}>
-          <h1 className="detect">FUNCIONÁRIO SEM CAPACETE DETECTADO!!</h1>
+    <div
+      style={{
+        alignItems: "center",
+        justifyContent: "center",
+        justifyItems: "center",
+      }}
+    >
+      <h1 className="detect">FUNCIONÁRIO SEM CAPACETE DETECTADO!!</h1>
 
       <div className="Card">
-
-
-
-
         <div className="rodrigo">
-
-          <h1 className="texto1">Hoje às 12h00</h1>
-          <h1 className="texto">Localização: Atrás da escola</h1>
-          <button onClick={turnOffAlert} className="botao1">Verificado</button>
-          </div>
-          <img style={{ marginTop: '20px',height: '480', width: '640px', borderRadius:'30px'}} src={require(`../images/alertsImages/${alertImage}`)} alt="" />
-
-
+          <h1 className="texto1">Hoje às {alertTime}</h1>
+          <h1 className="texto">Localização: {alertLocation}</h1>
+          <button onClick={turnOffAlert} className="botao1">
+            Verificado
+          </button>
+        </div>
+        <img
+          style={{
+            marginTop: "20px",
+            height: "480",
+            width: "640px",
+            borderRadius: "30px",
+          }}
+          src={require(`../images/alertsImages/${alertImage}`)}
+          alt=""
+        />
       </div>
-
     </div>
-
-
   );
-
 }
