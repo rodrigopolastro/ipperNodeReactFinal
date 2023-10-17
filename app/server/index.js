@@ -46,7 +46,10 @@ app.get("/turnOffAlert", async (request, response) => {
 
 app.get("/getAllAlerts", async (request, response) => {
   try {
-    let cursor = await alerts.find({}).limit(20) //.limit(20)
+    //ATENÇÃO: O mais correto a se fazer seria ter o campo 'date' do banco de dados
+    //no formato YYYY-MM-DD e depois inverter na exibição, pois assim permite a ordenação correta.
+    //Porém para a FECCETEC funcionará tranquilo, pois faremos em dois dias do mesmo mês.
+    let cursor = await alerts.find({}).sort({date: -1, time: -1}).limit(20)
     let results = await cursor.toArray()
     response.send(results);
   } catch (error) {

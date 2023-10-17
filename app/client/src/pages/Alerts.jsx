@@ -8,6 +8,7 @@ export default function Verification() {
   const [bigAlertFullDate, setBigAlertFullDate] = useState(null);
   const [bigAlertLocation, setBigAlertLocation] = useState(null);
   const [bigAlertIndex, setBigAlertIndex] = useState(null);
+  const [clickedAlertImage, setClickedAlertImage] = useState(null)
 
   useEffect(() => {
     // let counter=0;
@@ -21,7 +22,10 @@ export default function Verification() {
     setBigAlertImage(alert.imageName);
     setBigAlertFullDate(alert.date + " às " + alert.time);
     setBigAlertLocation(alert.location);
-    setBigAlertIndex(index + 1);
+    setBigAlertIndex(20 - index);
+
+    //Variable to track current highlighted alert using its unique image name
+    setClickedAlertImage(alert.imageName)
   }
 
   //If no alert was clicked
@@ -75,14 +79,15 @@ export default function Verification() {
             <div className="alertas">
               {alerts.map((alert, index) => (
                 <div
-                  className="morango"
+                  className={alert.imageName == clickedAlertImage ? "selected alert-div" : "alert-div"}
                   key={index}
                   onClick={() => {
                     highlightAlert(alert, index);
                   }}
                 >
                   <h1 className="texto2">
-                    <span className="dados">Alerta {index + 1}</span>
+                    {/* 20 - index because we only query the last 20 alerts*/}
+                    <span className="dados">Alerta {20 - index}</span>
                   </h1>
                   <img
                     style={{

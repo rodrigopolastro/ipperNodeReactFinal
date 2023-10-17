@@ -88,7 +88,7 @@ body{
   border: 3px solid #151719;  /* creates padding around scroll thumb */
 }
 
-.morango{
+.alert-div{
   margin-bottom: 15px;
   text-align: center;
   background-color: #121215;
@@ -96,9 +96,14 @@ body{
   border-radius: 15px;
 }
 
-.morango:hover{
+.alert-div:hover{
   cursor: pointer;
 }
+
+.selected{
+  box-shadow: 0 0 10px #5658dd;
+}
+
 
 .titulo1{
   font-weight: bold;
