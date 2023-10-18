@@ -46,7 +46,7 @@ export default function Verification() {
     componentToRender = (
       <CapaceteOk
         startQueries={() => {
-          let newIntervalId = setInterval(getAlertValue, 2000);
+          let newIntervalId = setInterval(getAlertValue, 500);
           setIntervalId(newIntervalId);
         }}
       />

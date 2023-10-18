@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./alerta.css";
 
 export default function SemCapacete({
@@ -9,7 +9,16 @@ export default function SemCapacete({
   alertImage,
   alertLocation,
 }) {
-  useEffect(stopQueries, []);
+  const [imgExists, setImgExists] = useState(false);
+  useEffect(() => {
+    try {
+      require(`../images/alertsImages/${alertImage}`)
+      setImgExists(true)
+      stopQueries()
+    } catch (error) {
+      console.log('erro carregando imagem')
+    }
+  }, []);
 
   function turnOffAlert() {
     setAlertStateOff();
@@ -45,7 +54,7 @@ export default function SemCapacete({
             width: "640px",
             borderRadius: "30px",
           }}
-          src={require(`../images/alertsImages/${alertImage}`)}
+          src={imgExists ? require(`../images/alertsImages/${alertImage}`) : require(`../images/alertsImages/placeholder.png`)}
           alt=""
         />
       </div>

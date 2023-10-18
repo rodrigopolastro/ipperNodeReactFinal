@@ -14,10 +14,11 @@ from datetime import datetime
 
 from verification import turnOnAlert, getAlertValue
 from alerts import registerAlert
-
+import os.path
 IMAGES_DIRECTORY = "C:Users/gabri/Desktop/ipperNodeReactFinal/app/client/src/images/alertsImages"
 is_alert_on = False
 p_time = 0
+
 
 
 st.sidebar.title('Settings')
@@ -173,23 +174,45 @@ if (cap != None) and pred:
         df_fq = pd.DataFrame(class_fq.items(), columns=['Class', 'Number'])
 
         # TIRA PRINT E INFORMA O BANCO DE DADOS
+        # if is_alert_on is False:
+        #     if 'head' in class_fq:
+        #         is_alert_on = True
+        #
+        #         current_date = datetime.now()
+        #         image_name = current_date.strftime("%Y-%m-%d, %H-%M-%S") + '.png'
+        #         date = current_date.strftime("%d/%m/%Y")
+        #         hora = current_date.strftime("%H:%M:%S")
+        #         location = "Setor 1 - Câmera 4"
+        #
+        #         cv2.imwrite(f"C:/Users/gabri/Desktop/ipperNodeReactFinal/app/client/src/images/alertsImages/{image_name}", img)
+        #         print('PRINT TIRADO!')
+        #
+        #         turnOnAlert(image_name, date, hora, location)   # update 'verification' collection
+        #         registerAlert(image_name, date, hora, location) # update 'alerts' collection
+        # else:
+        #     is_alert_on = getAlertValue() #get value from database
+
         if is_alert_on is False:
             if 'head' in class_fq:
-                is_alert_on = True
-
                 current_date = datetime.now()
                 image_name = current_date.strftime("%Y-%m-%d, %H-%M-%S") + '.png'
                 date = current_date.strftime("%d/%m/%Y")
                 hora = current_date.strftime("%H:%M:%S")
-                location = "Setor 1 - Câmera 4"
+                location = "Cerâmica Clube - Estante IPPER"
 
-                cv2.imwrite(f"C:/Users/gabri/Desktop/ipperNodeReactFinal/app/client/src/images/alertsImages/{image_name}", img)
-                print('PRINT TIRADO!')
+                file_path = f"{IMAGES_DIRECTORY}/{image_name}"
+                success = cv2.imwrite(file_path, img)
+                if success:
+                    if os.path.exists(file_path):
+                        is_alert_on = True
+                        turnOnAlert(image_name, date, hora, location)  # update 'verification' collection
+                        registerAlert(image_name, date, hora, location)  # update 'alerts' collection
 
-                turnOnAlert(image_name, date, hora, location)   # update 'verification' collection
-                registerAlert(image_name, date, hora, location) # update 'alerts' collection
+
         else:
-            is_alert_on = getAlertValue() #get value from database
+            is_alert_on = getAlertValue()  # get value from database
+
+
 
         # Updating Inference results
         get_system_stat(stframe1, stframe2, stframe3, fps, df_fq)
